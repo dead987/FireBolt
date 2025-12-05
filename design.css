@@ -5,6 +5,7 @@ html, body{
     padding: 0;
     font-family: Poppins;
     overflow-x: hidden;
+    max-width: 100vw;
 }
 
 nav{
@@ -79,6 +80,12 @@ header{
     position: relative;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+}
+
+main{
+    overflow: hidden;
+    max-width: 100%;
 }
 
 .mega-menu-categories a{
@@ -283,6 +290,8 @@ header{
 .hero-section{
     display: flex;
     flex-direction: column;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 #carousel {
@@ -800,7 +809,7 @@ header{
 
 .categoriesGrid{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(4, 1fr);
     /* overflow: visible; */
     /* padding: 10px; */
     margin: 20px;
@@ -1743,6 +1752,7 @@ header{
 .site-footer{
     background-color: #f8f5f0;
     padding: 60px 80px 0;
+    overflow: hidden;
 }
 
 .footer-main{
