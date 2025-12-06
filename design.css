@@ -1437,13 +1437,9 @@ main{
 }
 
 .bestsellers{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
     width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    /* background: black; */
+    overflow: visible;
     padding: 10px 0 50px 0;
 }
 
@@ -1455,13 +1451,15 @@ main{
     display: flex;
     gap: 20px;
     padding: 0 30px;
-    overflow-x: auto;
+    overflow-x: scroll;
     scroll-snap-type: x mandatory;
     width: 100%;
     box-sizing: border-box;
     justify-content: flex-start;
     flex-wrap: nowrap;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
 
 .blogGrid::-webkit-scrollbar{
