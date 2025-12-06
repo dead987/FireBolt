@@ -32,6 +32,8 @@ nav{
 #icons{
     display: flex;
     gap: 20px;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 #logo img{
@@ -44,6 +46,7 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
     /* position: absolute; */
     /* margin-left: 50%; */
 }
@@ -59,6 +62,7 @@ nav{
     display: flex;
     gap: 25px;
     align-items: center;
+    flex: 1;
 }
 
 
@@ -1457,18 +1461,18 @@ main{
 
 .blogGrid{
     display: flex;
-    gap: 25px;
-    padding: 0 40px;
+    gap: 20px;
+    padding: 0 30px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    max-width: 1280px;
+    max-width: 100%;
     margin: 0 auto;
     justify-content: center;
 }
 
 .blogBox{
-    width: 260px;
-    height: 170px;
+    width: 240px;
+    height: 160px;
     border-radius: 10px;
     overflow: hidden;
     flex-shrink: 0;
@@ -1501,8 +1505,8 @@ main{
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    flex: 0 0 260px;
-    max-width: 260px;
+    flex: 0 0 240px;
+    max-width: 240px;
     scroll-snap-align: start;
 }
 
