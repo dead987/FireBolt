@@ -2732,6 +2732,17 @@ main{
         font-size: 40px;
     }
     
+    /* Fire-Lens sections headings - center align and smaller */
+    .upper-box{
+        padding: 0 20px;
+    }
+    
+    .upper-box h3{
+        font-size: 36px;
+        text-align: center;
+        line-height: 1.3;
+    }
+    
     /* Categories Grid */
     .categoriesGrid{
         margin-left: 20px;
@@ -2757,10 +2768,34 @@ main{
         font-size: 40px;
     }
     
-    /* Blog */
+    .B1 h3{
+        font-size: 20px;
+    }
+    
+    /* Blog - center aligned and larger */
+    .blogUpperBox{
+        align-items: center;
+        text-align: center;
+    }
+    
     .blogGrid{
-        grid-auto-columns: 320px;
+        grid-auto-columns: 220px;
         padding: 0 30px;
+        justify-content: center;
+    }
+    
+    .blogBox{
+        width: 220px;
+        height: 150px;
+    }
+    
+    .B2{
+        flex: 0 0 220px;
+        max-width: 220px;
+    }
+    
+    .B2 h3{
+        font-size: 14px;
     }
     
     /* Firecrackers */
@@ -2768,14 +2803,26 @@ main{
         padding: 0 50px;
     }
     
-    /* Press */
-    .press-logos{
-        grid-template-columns: repeat(3, 1fr);
+    /* Press - center aligned */
+    .press{
+        text-align: center;
     }
     
-    /* Partners */
+    .press-logos{
+        grid-template-columns: repeat(3, 1fr);
+        justify-content: center;
+        justify-items: center;
+    }
+    
+    /* Partners - center aligned */
+    .partner{
+        text-align: center;
+    }
+    
     .partner-logos{
         grid-template-columns: repeat(4, 1fr);
+        justify-content: center;
+        justify-items: center;
     }
 }
 
