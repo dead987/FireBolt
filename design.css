@@ -3867,3 +3867,105 @@ main{
         font-size: 10px;
     }
 }
+
+/* ===== Large Desktop Screens (1366px and above) ===== */
+@media screen and (min-width: 1366px) {
+    /* Just Trending & Bolt Deal sections - remove scroll, center align */
+    .trending {
+        overflow-x: visible;
+        overflow-y: visible;
+        justify-content: center;
+    }
+    
+    .trendingGrid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        padding: 0 40px;
+        max-width: 1366px;
+        margin: 0 auto;
+    }
+    
+    .trendingBox {
+        width: 300px;
+        flex-shrink: 0;
+    }
+    
+    .trendingUpper {
+        max-width: 1366px;
+        margin: 0 auto;
+    }
+    
+    /* Constrain all other sections to max-width */
+    .row2 {
+        max-width: 1366px;
+        margin: 0 auto;
+    }
+    
+    .grid-items {
+        max-width: 1300px;
+    }
+    
+    .upper-box {
+        max-width: 1366px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .box {
+        max-width: 1366px;
+        margin: 0 auto;
+    }
+    
+    .bestsellers {
+        max-width: 1366px;
+        margin: 0 auto;
+    }
+    
+    .blogUpperBox {
+        max-width: 1366px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .blogGrid {
+        max-width: 1300px;
+    }
+    
+    .press {
+        max-width: 1366px;
+        margin: 0 auto;
+    }
+    
+    .press-logos {
+        max-width: 1200px;
+    }
+    
+    .partner {
+        max-width: 1366px;
+        margin: 0 auto;
+    }
+    
+    .partner-logos {
+        max-width: 1200px;
+    }
+    
+    /* Category section */
+    .categoryGrid {
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+    
+    /* YouTube/Influencers section */
+    .youtube, .influencers {
+        max-width: 1366px;
+        margin: 0 auto;
+    }
+    
+    /* Firecrackers section */
+    .firecrackers-wrapper {
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+}
