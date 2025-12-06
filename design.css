@@ -1942,13 +1942,13 @@ main{
     }
     
     .footer-main{
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 30px;
-        text-align: center;
+        text-align: left;
     }
     
     .footer-social a{
-        justify-content: center;
+        justify-content: flex-start;
     }
     
     .footer-heading{
@@ -2457,6 +2457,21 @@ main{
     
     nav{
         padding: 12px 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* Show hamburger menu on tablet */
+    .hamburger-menu{
+        display: flex !important;
+        order: -1;
+    }
+    
+    #logo{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
     
     #logo img{
@@ -2921,7 +2936,7 @@ main{
     .row1{
         flex-wrap: nowrap;
         overflow-x: auto;
-        justify-content: flex-start;
+        justify-content: center;
         padding: 20px;
         gap: 15px;
         -webkit-overflow-scrolling: touch;
@@ -2954,7 +2969,7 @@ main{
     
     .grid-items{
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
+        gap: 25px;
         padding: 0 15px;
     }
     
