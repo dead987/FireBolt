@@ -2882,6 +2882,10 @@ main{
         padding: 0 30px;
     }
     
+    .B1 h3{
+        font-size: 18px;
+    }
+    
     /* Scroll Text */
     .scrollInner span{
         font-size: 18px;
