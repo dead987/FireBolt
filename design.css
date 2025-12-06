@@ -465,7 +465,10 @@ main{
 .grid-items{
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    gap: 70px;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 
@@ -481,16 +484,15 @@ main{
 .item{
     display: flex;
     flex-direction: row;
-    gap: 20px;
-    min-width: 290px;
-    padding: 10px 15px;
+    gap: 15px;
+    min-width: 240px;
+    padding: 15px;
     justify-content: center;
     align-items: center;
     max-height: 80px;
     width: 100%;
     /* background: linear-gradient(to right, #eee, #fbfbfb); */
     background-image: linear-gradient(51deg, #ececec, transparent);
-    padding: 20px;
     border: 1px solid #eaeaea;
     border-radius: 6px;
 }
@@ -1447,15 +1449,18 @@ main{
 
 .blogGrid{
     display: flex;
-    gap: 30px;
-    padding: 0 60px;
+    gap: 25px;
+    padding: 0 40px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    max-width: 1280px;
+    margin: 0 auto;
+    justify-content: center;
 }
 
 .blogBox{
-    width: 280px;
-    height: 180px;
+    width: 260px;
+    height: 170px;
     border-radius: 10px;
     overflow: hidden;
     flex-shrink: 0;
@@ -1488,8 +1493,8 @@ main{
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
-    flex: 0 0 280px;
-    max-width: 280px;
+    flex: 0 0 260px;
+    max-width: 260px;
     scroll-snap-align: start;
 }
 
@@ -1680,12 +1685,12 @@ main{
 .partner-logos{
     display: grid;
     grid-template-columns: repeat(5, 1fr);  /* 5 logos per row */
-    gap: 25px 35px;
-    max-width: 1400px;
+    gap: 20px 25px;
+    max-width: 1200px;
     margin: 0 auto;
     align-items: center;
     justify-items: center;
-    padding: 30px 40px;
+    padding: 30px 20px;
 }
 
 .partner-logo{
@@ -1706,8 +1711,8 @@ main{
 }
 
 .partner-logo img{
-    width: 180px;   
-    height: 90px;  
+    width: 160px;   
+    height: 80px;  
     object-fit: contain;
 }
 
