@@ -747,17 +747,12 @@ main{
     display: flex;
     align-items: center;
     flex-direction: column;
-    min-width: 0;
 }
 
 .B1 h3{
-    font-size: 16px;
-    margin: 10px 0;
+    font-size: 24px;
+    margin: 15px 0;
     text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
 }
 
 
@@ -3045,6 +3040,10 @@ main{
         height: 280px;
     }
     
+    .B1 h3{
+        font-size: 18px;
+    }
+    
     /* Scroll Text */
     .scrollText{
         padding: 12px 0;
@@ -3207,6 +3206,10 @@ main{
     
     .bestsellersBox{
         height: 240px;
+    }
+    
+    .B1 h3{
+        font-size: 16px;
     }
     
     /* Firecrackers */
@@ -3405,6 +3408,10 @@ main{
     
     .bestsellersBox{
         height: 200px;
+    }
+    
+    .B1 h3{
+        font-size: 14px;
     }
     
     /* Scroll Text */
