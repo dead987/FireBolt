@@ -1436,36 +1436,6 @@ main{
     margin-bottom: 20px;
 }
 
-.bestsellers{
-    display: block;
-    width: 100%;
-    overflow: visible;
-    padding: 10px 0 50px 0;
-}
-
-.bestsellers::-webkit-scrollbar{
-    display: none;
-}
-
-.blogGrid{
-    display: flex;
-    gap: 20px;
-    padding: 0 30px;
-    overflow-x: scroll;
-    scroll-snap-type: x mandatory;
-    width: 100%;
-    box-sizing: border-box;
-    justify-content: flex-start;
-    flex-wrap: nowrap;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-.blogGrid::-webkit-scrollbar{
-    display: none;
-}
-
 .blogBox{
     width: 240px;
     height: 160px;
@@ -1523,12 +1493,32 @@ main{
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    width: 100%;
+    overflow: hidden;
 }
 
+.bestsellers{
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 10px 0 50px 0;
+    -webkit-overflow-scrolling: touch;
+}
 
+.bestsellers::-webkit-scrollbar{
+    display: none;
+}
 
-
-/* Responsive - Firecrackers Section */
+.blogGrid{
+    display: flex;
+    gap: 20px;
+    padding: 0 30px;
+    width: max-content;
+    min-width: 100%;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
 @media screen and (max-width: 1200px) {
     .firecracker-card{
         width: 230px;
