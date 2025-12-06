@@ -44,20 +44,15 @@ updateCarousel();
 setInterval(nextSlide, 5000);
 
 
-// ==================== PRODUCTS MEGA MENU ====================
-
-// Category item hover effect for switching categories in dropdown
 const categoryItems = document.querySelectorAll('.category-item');
 const categoryProductSections = document.querySelectorAll('.category-products');
 
 if (categoryItems.length > 0) {
     categoryItems.forEach(item => {
         item.addEventListener('mouseenter', function() {
-            // Remove active from all category items
             categoryItems.forEach(cat => cat.classList.remove('active'));
             this.classList.add('active');
-            
-            // Show corresponding product section
+    
             const categoryName = this.getAttribute('data-category');
             categoryProductSections.forEach(section => {
                 section.classList.remove('active');
@@ -69,19 +64,13 @@ if (categoryItems.length > 0) {
     });
 }
 
-
-// ==================== COUNTDOWN TIMER ====================
-
-// Set countdown end time (6 hours from now for demo)
 function initCountdown() {
     const hoursEl = document.getElementById('hours');
     const minutesEl = document.getElementById('minutes');
     const secondsEl = document.getElementById('seconds');
-    
-    // If elements don't exist, skip
+
     if (!hoursEl || !minutesEl || !secondsEl) return;
     
-    // Set end time - 6 hours from page load
     let endTime = new Date();
     endTime.setHours(endTime.getHours() + 6);
     
@@ -90,7 +79,6 @@ function initCountdown() {
         const diff = endTime - now;
         
         if (diff <= 0) {
-            // Reset timer when it reaches 0
             endTime = new Date();
             endTime.setHours(endTime.getHours() + 6);
             return;
@@ -104,97 +92,48 @@ function initCountdown() {
         minutesEl.textContent = minutes;
         secondsEl.textContent = seconds;
     }
-    
-    // Update every second
     updateCountdown();
     setInterval(updateCountdown, 1000);
 }
 
-// Initialize countdown when DOM is loaded
 initCountdown();
 
 
-// ==================== FIRECRACKERS CAROUSEL ====================
-
 function initFirecrackersCarousel() {
-    const container = document.getElementById('firecrackers-container');
     const track = document.getElementById('firecrackers-track');
     const leftBtn = document.getElementById('firecracker-left');
     const rightBtn = document.getElementById('firecracker-right');
+    const cards = document.querySelectorAll('.firecracker-card');
     
-    // If elements don't exist, skip
-    if (!container || !track || !leftBtn || !rightBtn) return;
+    if (!track || !leftBtn || !rightBtn || cards.length === 0) return;
     
-    const cards = Array.from(track.querySelectorAll('.firecracker-card'));
+    let currentIndex = 0;
     const totalCards = cards.length;
     
-    // Clone all cards and append/prepend for seamless infinite scroll
-    // Clone to end
-    cards.forEach(card => {
-        const clone = card.cloneNode(true);
-        track.appendChild(clone);
-    });
-    // Clone to beginning
-    for (let i = totalCards - 1; i >= 0; i--) {
-        const clone = cards[i].cloneNode(true);
-        track.insertBefore(clone, track.firstChild);
+    function updateCarousel() {
+        cards.forEach(card => card.classList.remove('active'));
+        cards[currentIndex].classList.add('active');
     }
     
-    // Get card width including gap after cloning
-    const cardStyle = window.getComputedStyle(track.querySelector('.firecracker-card'));
-    const cardWidth = track.querySelector('.firecracker-card').offsetWidth + 25; // 25 is gap
-    
-    // Set initial position to show original cards (skip the prepended clones)
-    let currentPosition = totalCards * cardWidth;
-    track.style.transform = `translateX(-${currentPosition}px)`;
-    
-    let isAnimating = false;
-    
-    function handleTransitionEnd() {
-        track.style.transition = 'none';
-        
-        // If scrolled too far right, jump back to original set
-        if (currentPosition >= (totalCards * 2) * cardWidth) {
-            currentPosition = totalCards * cardWidth;
-            track.style.transform = `translateX(-${currentPosition}px)`;
-        }
-        // If scrolled too far left, jump forward to original set
-        if (currentPosition <= 0) {
-            currentPosition = totalCards * cardWidth;
-            track.style.transform = `translateX(-${currentPosition}px)`;
-        }
-        
-        isAnimating = false;
+    function nextCard() {
+        currentIndex = (currentIndex + 1) % totalCards;
+        updateCarousel();
     }
     
-    track.addEventListener('transitionend', handleTransitionEnd);
+    function prevCard() {
+        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+        updateCarousel();
+    }
     
-    // Scroll right - continuous forward
-    rightBtn.addEventListener('click', function() {
-        if (isAnimating) return;
-        isAnimating = true;
-        
-        track.style.transition = 'transform 0.5s ease';
-        currentPosition += cardWidth;
-        track.style.transform = `translateX(-${currentPosition}px)`;
-    });
+    rightBtn.addEventListener('click', nextCard);
+    leftBtn.addEventListener('click', prevCard);
     
-    // Scroll left - continuous backward
-    leftBtn.addEventListener('click', function() {
-        if (isAnimating) return;
-        isAnimating = true;
-        
-        track.style.transition = 'transform 0.5s ease';
-        currentPosition -= cardWidth;
-        track.style.transform = `translateX(-${currentPosition}px)`;
-    });
+    // Initialize first card as active
+    updateCarousel();
 }
 
-// Initialize firecrackers carousel
 initFirecrackersCarousel();
 
-
-// ==================== BACK TO TOP BUTTON ====================
 
 const backToTopBtn = document.getElementById('backToTop');
 
@@ -207,9 +146,6 @@ if (backToTopBtn) {
     });
 }
 
-
-// ==================== SCROLL REVEAL ANIMATION ====================
-
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('.small-box1, .youtubeBox, .influencersBox, .bestsellersBox');
     
@@ -218,31 +154,21 @@ function initScrollReveal() {
             const rect = el.getBoundingClientRect();
             const windowHeight = window.innerHeight;
             
-            // Check if element is in viewport
             if (rect.top < windowHeight - 100 && rect.bottom > 0) {
-                // Add staggered delay based on position in row
-                const delay = (index % 8) * 100; // Stagger by 100ms per item
+                const delay = (index % 8) * 100;
                 setTimeout(() => {
                     el.classList.add('reveal');
                 }, delay);
             } else {
-                // Remove reveal class when out of viewport
                 el.classList.remove('reveal');
             }
         });
     };
-    
-    // Run on scroll
     window.addEventListener('scroll', revealOnScroll);
-    
-    // Run once on load
     revealOnScroll();
 }
 
 initScrollReveal();
-
-
-// ==================== PARTNER LOGOS STAGGERED REVEAL ====================
 
 function initPartnerReveal() {
     const partnerLogos = document.querySelectorAll('.partner-logo');
@@ -253,13 +179,12 @@ function initPartnerReveal() {
     const revealPartners = () => {
         const rect = partnerSection.getBoundingClientRect();
         const windowHeight = window.innerHeight;
-        
-        // Check if partner section is in viewport
+    
         if (rect.top < windowHeight - 100 && rect.bottom > 0) {
             partnerLogos.forEach((logo, index) => {
                 setTimeout(() => {
                     logo.classList.add('reveal');
-                }, index * 150); // 150ms delay between each logo
+                }, index * 150);
             });
         } else {
             partnerLogos.forEach(logo => {
@@ -274,9 +199,6 @@ function initPartnerReveal() {
 
 initPartnerReveal();
 
-
-// ==================== MOBILE SIDEBAR MENU ====================
-
 function initMobileMenu() {
     const hamburger = document.getElementById('hamburger-menu');
     const sidebar = document.getElementById('mobile-sidebar');
@@ -285,17 +207,14 @@ function initMobileMenu() {
     const menuHeaders = document.querySelectorAll('.mobile-menu-header');
     const mobileNavCategories = document.getElementById('mobile-nav-categories');
     
-    // If elements don't exist, skip
     if (!sidebar || !overlay || !closeBtn) return;
     
-    // Open sidebar from hamburger menu
     if (hamburger) {
         hamburger.addEventListener('click', function() {
             openSidebar();
         });
     }
     
-    // Open sidebar from bottom nav Categories button
     if (mobileNavCategories) {
         mobileNavCategories.addEventListener('click', function(e) {
             e.preventDefault();
@@ -309,30 +228,25 @@ function initMobileMenu() {
         document.body.style.overflow = 'hidden'; // Prevent body scroll
     }
     
-    // Close sidebar - Close button
     closeBtn.addEventListener('click', closeSidebar);
-    
-    // Close sidebar - Overlay click
+
     overlay.addEventListener('click', closeSidebar);
     
     function closeSidebar() {
         sidebar.classList.remove('active');
         overlay.classList.remove('active');
-        document.body.style.overflow = ''; // Restore body scroll
+        document.body.style.overflow = '';
     }
     
-    // Accordion toggle for menu items
     menuHeaders.forEach(header => {
         header.addEventListener('click', function() {
             const targetId = this.getAttribute('data-target');
             const submenu = document.getElementById(targetId);
             
             if (!submenu) return;
-            
-            // Toggle current item
+        
             const isActive = this.classList.contains('active');
             
-            // Close all other submenus
             menuHeaders.forEach(h => {
                 h.classList.remove('active');
                 const subId = h.getAttribute('data-target');
@@ -340,22 +254,19 @@ function initMobileMenu() {
                 if (sub) sub.classList.remove('active');
             });
             
-            // Open current if it wasn't active
             if (!isActive) {
                 this.classList.add('active');
                 submenu.classList.add('active');
             }
         });
     });
-    
-    // Close sidebar on window resize if desktop
+
     window.addEventListener('resize', function() {
         if (window.innerWidth > 992) {
             closeSidebar();
         }
     });
     
-    // Close sidebar with Escape key
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && sidebar.classList.contains('active')) {
             closeSidebar();
@@ -365,13 +276,12 @@ function initMobileMenu() {
 
 initMobileMenu();
 
-// Footer Accordion Functionality
 function initFooterAccordion() {
     const footerAccordionHeaders = document.querySelectorAll('.footer-accordion-header');
     
     footerAccordionHeaders.forEach(header => {
         header.addEventListener('click', function() {
-            // Only activate on mobile (587px and below)
+    
             if (window.innerWidth > 587) return;
             
             const targetId = this.getAttribute('data-footer-target');
@@ -381,7 +291,6 @@ function initFooterAccordion() {
             
             const isActive = this.classList.contains('active');
             
-            // Close all other accordions
             footerAccordionHeaders.forEach(h => {
                 h.classList.remove('active');
                 const contentId = h.getAttribute('data-footer-target');
@@ -389,15 +298,13 @@ function initFooterAccordion() {
                 if (c) c.classList.remove('active');
             });
             
-            // Open current if it wasn't active
             if (!isActive) {
                 this.classList.add('active');
                 content.classList.add('active');
             }
         });
     });
-    
-    // Reset accordions on resize to desktop
+
     window.addEventListener('resize', function() {
         if (window.innerWidth > 587) {
             footerAccordionHeaders.forEach(h => {

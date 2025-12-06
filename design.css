@@ -2571,29 +2571,23 @@ main{
     height: 24px;
 }
 
-
-
-/* ==================== RESPONSIVE - NAVBAR ==================== */
 @media screen and (max-width: 1000px){
-    /* Show hamburger menu on left */
+ 
     .hamburger-menu{
         display: flex;
         order: -1;
     }
     
-    /* Hide desktop nav links */
     #links{
         display: none;
     }
-    
-    /* Adjust logo to center */
+
     #logo{
         padding-right: 0;
         flex: 1;
         justify-content: center;
     }
     
-    /* Adjust nav padding and layout */
     nav{
         padding: 15px 20px;
         justify-content: space-between;
@@ -2730,17 +2724,14 @@ main{
         display: flex;
     }
     
-    /* Add padding to body to prevent content from being hidden behind bottom nav */
     body{
         padding-bottom: 70px;
     }
-    
-    /* Hide the hamburger menu from top nav since we have Categories in bottom nav */
+
     .hamburger-menu{
         display: none !important;
     }
     
-    /* Fire-Lens in Action - 2 cards per row */
     .box{
         overflow-x: visible;
         overflow-y: visible;
@@ -2760,8 +2751,7 @@ main{
         height: 100%;
         min-height: 300px;
     }
-    
-    /* Create. Review. Repeat. - 2 cards per row */
+
     .youtube{
         overflow-x: visible;
         overflow-y: visible;
@@ -2854,8 +2844,6 @@ main{
         font-size: 22px;
     }
 }
-
-/* ==================== COMPREHENSIVE RESPONSIVE STYLES ==================== */
 
 /* 1200px - Large Tablets / Small Desktops */
 @media screen and (max-width: 1200px){
