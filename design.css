@@ -2978,7 +2978,7 @@ main{
     
     /* Row 2 - Stats */
     .row2{
-        padding: 10px 15px;
+        padding: 10px 20px;
     }
     
     .row2 h2{
@@ -2988,20 +2988,21 @@ main{
     
     .grid-items{
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px 40px;
-        padding: 0 20px;
+        gap: 20px 50px;
+        padding: 0 30px;
     }
     
     .item{
-        flex-direction: column;
-        text-align: center;
-        padding: 15px 10px;
-        gap: 10px;
+        flex-direction: row;
+        text-align: left;
+        padding: 18px 15px;
+        gap: 15px;
+        min-width: 280px;
     }
     
     .item img{
-        width: 40px;
-        height: 40px;
+        width: 45px;
+        height: 45px;
     }
     
     .head{
