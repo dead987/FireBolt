@@ -103,33 +103,34 @@ function initFirecrackersCarousel() {
     const track = document.getElementById('firecrackers-track');
     const leftBtn = document.getElementById('firecracker-left');
     const rightBtn = document.getElementById('firecracker-right');
-    const cards = document.querySelectorAll('.firecracker-card');
     
-    if (!track || !leftBtn || !rightBtn || cards.length === 0) return;
+    if (!track || !leftBtn || !rightBtn) return;
     
-    let currentIndex = 0;
-    const totalCards = cards.length;
+    const cards = track.querySelectorAll('.firecracker-card');
+    if (cards.length === 0) return;
     
-    function updateCarousel() {
-        cards.forEach(card => card.classList.remove('active'));
-        cards[currentIndex].classList.add('active');
-    }
+    // Get card width + gap (25px)
+    const cardWidth = cards[0].offsetWidth + 25;
+    let currentPosition = 0;
+    const maxScroll = (cards.length * cardWidth) - track.parentElement.offsetWidth;
     
-    function nextCard() {
-        currentIndex = (currentIndex + 1) % totalCards;
-        updateCarousel();
-    }
+    rightBtn.addEventListener('click', function() {
+        currentPosition += cardWidth;
+        // Loop back to start if at end
+        if (currentPosition > maxScroll) {
+            currentPosition = 0;
+        }
+        track.style.transform = `translateX(-${currentPosition}px)`;
+    });
     
-    function prevCard() {
-        currentIndex = (currentIndex - 1 + totalCards) % totalCards;
-        updateCarousel();
-    }
-    
-    rightBtn.addEventListener('click', nextCard);
-    leftBtn.addEventListener('click', prevCard);
-    
-    // Initialize first card as active
-    updateCarousel();
+    leftBtn.addEventListener('click', function() {
+        currentPosition -= cardWidth;
+        // Loop to end if at start
+        if (currentPosition < 0) {
+            currentPosition = maxScroll;
+        }
+        track.style.transform = `translateX(-${currentPosition}px)`;
+    });
 }
 
 initFirecrackersCarousel();
