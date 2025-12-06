@@ -2958,7 +2958,7 @@ main{
 @media screen and (max-width: 768px){
     /* Carousel */
     #carousel{
-        height: 40vh;
+        height: 50vh;
     }
     
     .dot-container{
