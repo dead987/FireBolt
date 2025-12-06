@@ -1438,20 +1438,19 @@ main{
 }
 
 .blogGrid{
-    display: grid;
-    grid-auto-flow: column;        
-    grid-auto-columns: 380px;      
-    gap: 20px;
-    padding: 0 40px 0 50px;
-    min-width: 300px;
+    display: flex;
+    gap: 15px;
+    padding: 0 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
 }
 
 .blogBox{
-    
-    height: 200px;
-    /* border: 2px solid gold; */
+    width: 140px;
+    height: 140px;
     border-radius: 10px;
     overflow: hidden;
+    flex-shrink: 0;
 }
 
 .blogBox img{
@@ -1477,18 +1476,22 @@ main{
 }
 
 .B2{
-    /* max-width: 300px; */
-    
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
+    flex: 0 0 140px;
+    max-width: 140px;
+    scroll-snap-align: start;
 }
 
 .B2 h3{
-    font-size: 16px;
+    font-size: 12px;
     line-height: 1.3;
-    margin: 10px 0;
+    margin: 8px 0;
+    text-align: center;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .blogUpperBox{
@@ -2518,19 +2521,21 @@ main{
     justify-content: center;
     text-decoration: none;
     color: #1a1a1a;
-    gap: 4px;
-    padding: 5px 10px;
+    gap: 2px;
+    padding: 5px 5px;
     transition: color 0.2s ease;
+    flex: 1;
+    min-width: 0;
 }
 
 .mobile-nav-item svg{
-    width: 32px;
-    height: 32px;
+    width: 22px;
+    height: 22px;
     stroke-width: 1.5;
 }
 
 .mobile-nav-item span{
-    font-size: 16px;
+    font-size: 11px;
     font-weight: 400;
 }
 
@@ -3568,22 +3573,37 @@ main{
     }
     
     .blogGrid{
-        grid-auto-columns: 150px;
-        gap: 8px;
-        padding: 0 8px;
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .B2{
+        flex: 0 0 120px;
+        max-width: 120px;
     }
     
     .blogBox{
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
     
     .B2 h3{
-        font-size: 12px;
+        font-size: 11px;
         margin: 5px 0;
     }
     
     #blogButton{
         padding: 6px 15px;
         font-size: 12px;
+    }
+    
+    /* Mobile Bottom Nav for small screens */
+    .mobile-nav-item svg{
+        width: 20px;
+        height: 20px;
+    }
+    
+    .mobile-nav-item span{
+        font-size: 10px;
     }
 }
