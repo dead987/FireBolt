@@ -1486,7 +1486,9 @@ main{
 }
 
 .B2 h3{
-    font-size: 24px;
+    font-size: 16px;
+    line-height: 1.3;
+    margin: 10px 0;
 }
 
 .blogUpperBox{
@@ -2266,7 +2268,7 @@ main{
 }
 
 .mobile-menu-left span{
-    font-size: 30px;
+    font-size: 16px;
     font-weight: 400;
     color: #1a1a1a;
 }
@@ -2319,14 +2321,14 @@ main{
 } */
 
 .mobile-product img{
-    width: 180px;
-    height: 180px;
+    width: 80px;
+    height: 80px;
     object-fit: contain;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .mobile-product span{
-    font-size: 25px;
+    font-size: 12px;
     font-weight: 600;
     color: #1a1a1a;
     text-align: center;
@@ -2337,8 +2339,8 @@ main{
 /* Simple Links */
 .mobile-simple-link{
     display: block;
-    padding: 18px 20px;
-    font-size: 30px;
+    padding: 15px 20px;
+    font-size: 16px;
     font-weight: 600;
     color: #050404;
     text-decoration: none;
@@ -2359,8 +2361,8 @@ main{
 .mobile-view-all{
     display: block;
     text-align: center;
-    padding: 12px 20px;
-    font-size: 20px;
+    padding: 10px 15px;
+    font-size: 14px;
     font-weight: 600;
     color: #1a1a1a;
     text-decoration: none;
@@ -2377,8 +2379,8 @@ main{
 /* Submenu Links (for More section) */
 .mobile-submenu-link{
     display: block;
-    padding: 12px 35px;
-    font-size: 20px;
+    padding: 12px 25px;
+    font-size: 14px;
     font-weight: 400;
     background-color: white;
     color: #070606;
@@ -3499,5 +3501,89 @@ main{
         min-width: auto;
         min-height: auto;
         padding: 15px;
+    }
+}
+
+/* 375px and below - Extra Small Phones (iPhone SE, etc.) */
+@media screen and (max-width: 400px){
+    /* Mobile Sidebar Adjustments */
+    .mobile-sidebar{
+        width: 90%;
+    }
+    
+    .mobile-menu-left img{
+        width: 35px;
+        height: 35px;
+    }
+    
+    .mobile-menu-left span{
+        font-size: 14px;
+    }
+    
+    .mobile-product-grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 8px 10px;
+    }
+    
+    .mobile-product{
+        padding: 10px;
+    }
+    
+    .mobile-product img{
+        width: 60px;
+        height: 60px;
+    }
+    
+    .mobile-product span{
+        font-size: 11px;
+    }
+    
+    .mobile-simple-link{
+        padding: 12px 15px;
+        font-size: 14px;
+    }
+    
+    .mobile-submenu-link{
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+    
+    .mobile-view-all{
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+    
+    /* Blog Section Adjustments */
+    .blogUpperBox{
+        padding: 0 10px;
+    }
+    
+    .blogsHeading{
+        font-size: 16px;
+    }
+    
+    .blogPara{
+        font-size: 11px;
+    }
+    
+    .blogGrid{
+        grid-auto-columns: 150px;
+        gap: 8px;
+        padding: 0 8px;
+    }
+    
+    .blogBox{
+        height: 100px;
+    }
+    
+    .B2 h3{
+        font-size: 12px;
+        margin: 5px 0;
+    }
+    
+    #blogButton{
+        padding: 6px 15px;
+        font-size: 12px;
     }
 }
