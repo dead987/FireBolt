@@ -1429,6 +1429,7 @@ main{
 .bestsellers{
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
@@ -1446,7 +1447,6 @@ main{
     padding: 0 40px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    justify-content: center;
 }
 
 .blogBox{
