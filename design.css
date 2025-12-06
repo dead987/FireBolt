@@ -257,7 +257,7 @@ main{
 
 .more-dropdown{
     position: absolute;
-    top: 100%;
+    top: 180%;
     left: 0;
     min-width: 300px;
     /* width: 100%; */
