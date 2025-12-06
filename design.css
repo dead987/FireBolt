@@ -1457,10 +1457,15 @@ main{
     padding: 0 30px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    max-width: 100%;
-    margin: 0 auto;
-    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: flex-start;
     flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.blogGrid::-webkit-scrollbar{
+    display: none;
 }
 
 .blogBox{
