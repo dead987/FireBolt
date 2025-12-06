@@ -1447,7 +1447,6 @@ main{
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
 .blogBox{
