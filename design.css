@@ -63,6 +63,10 @@ nav{
 
 
 .nav-item{
+    position: relative;
+}
+
+.nav-item.has-dropdown{
     position: static;
 }
 
@@ -252,7 +256,7 @@ main{
 
 .more-dropdown{
     position: absolute;
-    top: 180%;
+    top: 100%;
     left: 0;
     min-width: 300px;
     /* width: 100%; */
