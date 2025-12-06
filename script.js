@@ -100,35 +100,64 @@ initCountdown();
 
 
 function initFirecrackersCarousel() {
+    const container = document.getElementById('firecrackers-container');
     const track = document.getElementById('firecrackers-track');
     const leftBtn = document.getElementById('firecracker-left');
     const rightBtn = document.getElementById('firecracker-right');
     
-    if (!track || !leftBtn || !rightBtn) return;
+    if (!container || !track || !leftBtn || !rightBtn) return;
     
-    const cards = track.querySelectorAll('.firecracker-card');
-    if (cards.length === 0) return;
+    const cards = Array.from(track.querySelectorAll('.firecracker-card'));
+    const totalCards = cards.length;
     
-    // Get card width + gap (25px)
-    const cardWidth = cards[0].offsetWidth + 25;
-    let currentPosition = 0;
-    const maxScroll = (cards.length * cardWidth) - track.parentElement.offsetWidth;
+    cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        track.appendChild(clone);
+    });
+    for (let i = totalCards - 1; i >= 0; i--) {
+        const clone = cards[i].cloneNode(true);
+        track.insertBefore(clone, track.firstChild);
+    }
+    const cardStyle = window.getComputedStyle(track.querySelector('.firecracker-card'));
+    const cardWidth = track.querySelector('.firecracker-card').offsetWidth + 25;
     
-    rightBtn.addEventListener('click', function() {
-        currentPosition += cardWidth;
-        // Loop back to start if at end
-        if (currentPosition > maxScroll) {
-            currentPosition = 0;
+    let currentPosition = totalCards * cardWidth;
+    track.style.transform = `translateX(-${currentPosition}px)`;
+    
+    let isAnimating = false;
+    
+    function handleTransitionEnd() {
+        track.style.transition = 'none';
+    
+        if (currentPosition >= (totalCards * 2) * cardWidth) {
+            currentPosition = totalCards * cardWidth;
+            track.style.transform = `translateX(-${currentPosition}px)`;
         }
+        if (currentPosition <= 0) {
+            currentPosition = totalCards * cardWidth;
+            track.style.transform = `translateX(-${currentPosition}px)`;
+        }
+        
+        isAnimating = false;
+    }
+    
+    track.addEventListener('transitionend', handleTransitionEnd);
+
+    rightBtn.addEventListener('click', function() {
+        if (isAnimating) return;
+        isAnimating = true;
+        
+        track.style.transition = 'transform 0.5s ease';
+        currentPosition += cardWidth;
         track.style.transform = `translateX(-${currentPosition}px)`;
     });
-    
+
     leftBtn.addEventListener('click', function() {
+        if (isAnimating) return;
+        isAnimating = true;
+        
+        track.style.transition = 'transform 0.5s ease';
         currentPosition -= cardWidth;
-        // Loop to end if at start
-        if (currentPosition < 0) {
-            currentPosition = maxScroll;
-        }
         track.style.transform = `translateX(-${currentPosition}px)`;
     });
 }
